@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Projects</h1>
+  </div>
+
+  <div class="row project" ng-repeat="project in vm.projects">
+    <div class='col-md-3 result-projects'>
+      <h3>{{project.name}}</h3>
+      <img src="{{project.image}}">
+    </div>
+    <div class="col-md-9">
+        <ul>
+          <li ng-bind="project.type"></li>
+          <li ng-bind="project.city"></li>
+          <li ng-bind="project.year"></li>
+        </ul>
+        <a href="/#!/projects/{{project._id}}">View details</a>
+    </div>
+  </div>
+
+
+</section>

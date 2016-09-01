@@ -1,0 +1,63 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.project._id ? 'Edit Project' : 'New Project'}}</h1>
+  </div>
+  <div class="pull-right">
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.projectForm" class="form-horizontal" ng-submit="vm.save(vm.form.projectForm.$valid)" novalidate>
+      <fieldset>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Name</label>
+          <input name="name" type="text" ng-model="vm.project.name" id="name" class="form-control" placeholder="project name" required>
+          <div ng-messages="vm.form.projectForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Project name is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="city">City</label>
+          <select name="city" class="form-control" data-ng-model="vm.project.city" id="city">
+            <option value="beijing">Beijing</option>
+            <option value="Shanghai">Shanghai</option>
+            <option value="xian">Xi'an</option>
+            <option value="Zhengzhou">Zhengzhou</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="type">Type</label>
+          <div class="controls">
+            <input type="radio" name="type" data-ng-model="vm.project.type" id="type" value="existing" checked>Existing
+            <input type="radio" name="type" data-ng-model="vm.project.type" id="type" value="future">New
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="year">Year</label>
+          <div class="controls">
+            <input name="year" type="text" data-ng-model="vm.project.year" id="year" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="image">Image</label>
+          <div class="controls">
+            <input name="image" type="text" data-ng-model="vm.project.image" id="image" class="form-control" placeholder="image url">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.project._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

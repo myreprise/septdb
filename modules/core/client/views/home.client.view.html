@@ -1,0 +1,55 @@
+<section>
+
+  <div class="jumbotron text-center">
+
+    <div class="row" data-ng-controller="HomeController">
+      <div class="col-md-6">
+        <h3>Search projects</h3>
+        <form action='/#!/search' method="get">
+          <div class="form-group">
+            <input type="radio" name="type" value="existing" checked> Existing
+            <input type="radio" name="type" value="future"> Future
+          </div>
+          <div class="form-group">
+            <select name="developer" class="form-control">
+              <option value="0">select developer</option>
+              <option value="coli">COLI</option>
+              <option value="Yuexiu">Yuexiu</option>
+              <option value="COGO">COGO</option>
+              <option value="BJ North Star">BJ North Star</option>
+            </select>
+          </div> 
+          <div class="form-group">
+            <select name="city" class="form-control">
+              <option value="0">select city</option>
+              <option value="beijing">Beijing</option>
+              <option value="Shanghai">Shanghai</option>
+              <option value="xian">Xi'an</option>
+              <option value="Zhengzhou">Zhengzhou</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <select name="district" class="form-control">
+              <option value="0">select district</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="submit" ng-name="submit" class="btn btn-primary" value="search">
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div> <!-- end of jumbotron -->
+
+  <div class="row">
+    <h3>Results</h3>
+    <div class='col-md-3 result-projects' ng-repeat="project in vm.projects">
+      <h3>{{project.name}}</h3>
+      <img src={{project.image}}>
+        <a href="/#!/projects/{{project._id}}">View details</a>
+    </div>
+  </div> <!-- end of div class row
+
+
+</section>
